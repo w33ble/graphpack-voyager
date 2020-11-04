@@ -1,0 +1,17 @@
+{
+  "name": "graphpack-product-model",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "graphpack",
+    "build": "graphpack build",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@sibipro/eslint-config": "1.1.0",
+    "eslint": "^6.7.2",
+    "graphpack": "^1.0.9",
+    "prettier": "^1.19.1"
+  }
+}
