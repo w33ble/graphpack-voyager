@@ -13,6 +13,7 @@
     "eslint": "^6.7.2",
     "express": "^4.17.1",
     "graphpack": "^1.0.9",
+    "graphql-voyager": "^1.0.0-rc.31",
     "prettier": "^1.19.1"
   }
 }
