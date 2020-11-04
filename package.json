@@ -11,6 +11,7 @@
   "devDependencies": {
     "@sibipro/eslint-config": "1.1.0",
     "eslint": "^6.7.2",
+    "express": "^4.17.1",
     "graphpack": "^1.0.9",
     "prettier": "^1.19.1"
   }
