@@ -37,9 +37,9 @@ enum ProductAvailabilityReason {
 
 type ProductImage {
   url: String!
-  descritpion: String # useful but maybe not needed
+  description: String # useful but maybe not needed
   altText: String!
-  isDefault: Boolean!
+  isPrimary: Boolean!
   width: Int!
   height: Int!
 }
