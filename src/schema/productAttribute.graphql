@@ -1,3 +1,13 @@
+type ProductMeasurement {
+  dimension: String!
+  value: Float!
+  unit: String!
+}
+
+type ProductAttribute {
+  name: String!
+  value: String!
+}
 
 type ProductCategory {
   id: String!

@@ -17,10 +17,8 @@ interface ProductInterface {
   availability: ProductAvailability!
 
   # universal details about products
-  width: Float
-  height: Float
-  depth: Float
-  color: String
+  measurements: [ProductMeasurement!]! # ex. width, height, seer
+  attributes: [ProductAttribute!]! # ex. color
 }
 
 enum ProductType {
@@ -53,10 +51,8 @@ type Product implements ProductInterface {
   availability: ProductAvailability!
 
   # universal details about products
-  width: Float
-  height: Float
-  depth: Float
-  color: String
+  measurements: [ProductMeasurement!]!
+  attributes: [ProductAttribute!]!
 }
 
 type ProductVariant implements ProductInterface {
@@ -77,10 +73,8 @@ type ProductVariant implements ProductInterface {
   availability: ProductAvailability!
 
   # universal details about products
-  width: Float
-  height: Float
-  depth: Float
-  color: String
+  measurements: [ProductMeasurement!]!
+  attributes: [ProductAttribute!]!
 }
 
 type ProductAssociated implements ProductInterface {
@@ -104,8 +98,6 @@ type ProductAssociated implements ProductInterface {
   isRequired: Boolean!
 
   # universal details about products
-  width: Float
-  height: Float
-  depth: Float
-  color: String
+  measurements: [ProductMeasurement!]!
+  attributes: [ProductAttribute!]!
 }
