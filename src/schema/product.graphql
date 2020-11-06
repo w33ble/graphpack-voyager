@@ -1,0 +1,104 @@
+interface ProductInterface {
+  # universal fields on a product
+  id: String!
+  sku: String!
+  manufacturer: String!
+  category: [ProductCategory!]!
+  title: String!
+  subtitle: String!
+  description: String!
+  price: Float! # will a product always have a price?
+
+  # relationships to other data
+  images: [ProductImage!]!
+
+  # business logic
+  canPurchase: Boolean!
+
+  # universal details about products
+  width: Float
+  height: Float
+  depth: Float
+  color: String
+}
+
+type Product implements ProductInterface {
+  # universal fields on a product
+  id: String!
+  sku: String!
+  manufacturer: String!
+  category: [ProductCategory!]!
+  title: String!
+  subtitle: String!
+  description: String!
+  price: Float! # will a product always have a price?
+
+  # relationships to other data
+  variants: [ProductVariant!]!
+  images: [ProductImage!]!
+  associatedProducts: [AssociatedProduct!]!
+
+  # business logic
+  canPurchase: Boolean!
+
+  # universal details about products
+  width: Float
+  height: Float
+  depth: Float
+  color: String
+}
+
+type AssociatedProduct implements ProductInterface {
+  # universal fields on a product
+  id: String!
+  sku: String!
+  manufacturer: String!
+  category: [ProductCategory!]!
+  title: String!
+  subtitle: String!
+  description: String!
+  price: Float! # will a product always have a price?
+
+  # relationships to other data
+  # variants: [ProductVariant!]! # should associated products have this?
+  images: [ProductImage!]!
+
+  # business logic
+  canPurchase: Boolean!
+  isRequired: Boolean!
+
+  # universal details about products
+  width: Float
+  height: Float
+  depth: Float
+  color: String
+}
+
+type ProductCategory {
+  name: String
+}
+
+type ProductVariant {
+  id: String!
+  sku: String!
+  title: String!
+  subtitle: String!
+  description: String!
+  price: Float! # will a product always have a price?
+
+  # business logic
+  canPurchase: Boolean!
+
+  # universal details about products
+  width: Float
+  height: Float
+  depth: Float
+}
+
+type ProductImage {
+  url: String!
+  altText: String!
+  isDefault: Boolean!
+  width: Int!
+  height: Int!
+}
