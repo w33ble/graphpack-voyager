@@ -8,7 +8,7 @@ interface ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: Float! # will a product always have a price?
+  price: Float! # will a product always have a price? just a single price?
 
   # relationships to other data
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
@@ -40,17 +40,14 @@ type Product implements ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: Float! # will a product always have a price?
+  price: Float!
 
-  # relationships to other data
   variants: [ProductVariant!]!
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
   associatedProducts: [ProductAssociated!]!
 
-  # business logic
   availability: ProductAvailability!
 
-  # universal details about products
   measurements: [ProductMeasurement!]!
   attributes: [ProductAttribute!]!
 }
@@ -64,15 +61,12 @@ type ProductVariant implements ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: Float! # will a product always have a price?
+  price: Float!
 
-  # relationships to other data
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
 
-  # business logic
   availability: ProductAvailability!
 
-  # universal details about products
   measurements: [ProductMeasurement!]!
   attributes: [ProductAttribute!]!
 }
@@ -87,17 +81,14 @@ type ProductAssociated implements ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: Float! # will a product always have a price?
+  price: Float!
 
-  # relationships to other data
   # variants: [ProductVariant!]! # should associated products have this?
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
 
-  # business logic
   availability: ProductAvailability!
   isRequired: Boolean!
 
-  # universal details about products
   measurements: [ProductMeasurement!]!
   attributes: [ProductAttribute!]!
 }
