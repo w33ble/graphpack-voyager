@@ -11,7 +11,7 @@ interface ProductInterface {
   price: Float! # will a product always have a price?
 
   # relationships to other data
-  images(isPrimary: Boolean): [ProductImage!]!
+  images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
 
   # business logic
   availability: ProductAvailability!
@@ -44,7 +44,7 @@ type Product implements ProductInterface {
 
   # relationships to other data
   variants: [ProductVariant!]!
-  images(isPrimary: Boolean): [ProductImage!]!
+  images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
   associatedProducts: [ProductAssociated!]!
 
   # business logic
@@ -67,7 +67,7 @@ type ProductVariant implements ProductInterface {
   price: Float! # will a product always have a price?
 
   # relationships to other data
-  images(isPrimary: Boolean): [ProductImage!]!
+  images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
 
   # business logic
   availability: ProductAvailability!
@@ -91,7 +91,7 @@ type ProductAssociated implements ProductInterface {
 
   # relationships to other data
   # variants: [ProductVariant!]! # should associated products have this?
-  images(isPrimary: Boolean): [ProductImage!]!
+  images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
 
   # business logic
   availability: ProductAvailability!
