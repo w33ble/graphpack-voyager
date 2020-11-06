@@ -75,7 +75,15 @@ type AssociatedProduct implements ProductInterface {
 }
 
 type ProductCategory {
-  name: String
+  id: String!
+  name: String!
+  type: ProductCategoryType # this probably doesn't make sense...
+}
+
+# this probably doesn't make sense...
+enum ProductCategoryType {
+  PRODUCT
+  SERVICE
 }
 
 type ProductVariant {
