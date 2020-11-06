@@ -69,6 +69,8 @@ type ProductVariant implements ProductInterface {
 
   measurements: [ProductMeasurement!]!
   attributes: [ProductAttribute!]!
+
+  # we need a way to show which field values determine which variant is shown
 }
 
 type ProductAssociated implements ProductInterface {
