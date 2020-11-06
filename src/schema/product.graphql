@@ -3,7 +3,8 @@ interface ProductInterface {
   id: String!
   sku: String!
   manufacturer: String!
-  category: [ProductCategory!]!
+  type: ProductType!
+  categories(isPrimary: Boolean): [ProductCategory!]!
   title: String!
   subtitle: String!
   description: String!
@@ -13,7 +14,7 @@ interface ProductInterface {
   images: [ProductImage!]!
 
   # business logic
-  canPurchase: Boolean!
+  availability: ProductAvailability!
 
   # universal details about products
   width: Float
@@ -22,12 +23,22 @@ interface ProductInterface {
   color: String
 }
 
+enum ProductType {
+  APPLIANCE
+  HVAC
+  PAINT
+  FLOORING
+  CABINET
+  COUNTERTOP
+}
+
 type Product implements ProductInterface {
   # universal fields on a product
   id: String!
   sku: String!
   manufacturer: String!
-  category: [ProductCategory!]!
+  type: ProductType!
+  categories(isPrimary: Boolean): [ProductCategory!]!
   title: String!
   subtitle: String!
   description: String!
@@ -36,10 +47,10 @@ type Product implements ProductInterface {
   # relationships to other data
   variants: [ProductVariant!]!
   images: [ProductImage!]!
-  associatedProducts: [AssociatedProduct!]!
+  associatedProducts: [ProductAssociated!]!
 
   # business logic
-  canPurchase: Boolean!
+  availability: ProductAvailability!
 
   # universal details about products
   width: Float
@@ -48,12 +59,37 @@ type Product implements ProductInterface {
   color: String
 }
 
-type AssociatedProduct implements ProductInterface {
+type ProductVariant implements ProductInterface {
+  id: String!
+  sku: String!
+  manufacturer: String!
+  type: ProductType!
+  categories(isPrimary: Boolean): [ProductCategory!]!
+  title: String!
+  subtitle: String!
+  description: String!
+  price: Float! # will a product always have a price?
+
+  # relationships to other data
+  images: [ProductImage!]!
+
+  # business logic
+  availability: ProductAvailability!
+
+  # universal details about products
+  width: Float
+  height: Float
+  depth: Float
+  color: String
+}
+
+type ProductAssociated implements ProductInterface {
   # universal fields on a product
   id: String!
   sku: String!
   manufacturer: String!
-  category: [ProductCategory!]!
+  type: ProductType!
+  categories(isPrimary: Boolean): [ProductCategory!]!
   title: String!
   subtitle: String!
   description: String!
@@ -64,7 +100,7 @@ type AssociatedProduct implements ProductInterface {
   images: [ProductImage!]!
 
   # business logic
-  canPurchase: Boolean!
+  availability: ProductAvailability!
   isRequired: Boolean!
 
   # universal details about products
@@ -72,41 +108,4 @@ type AssociatedProduct implements ProductInterface {
   height: Float
   depth: Float
   color: String
-}
-
-type ProductCategory {
-  id: String!
-  name: String!
-  type: ProductCategoryType # this probably doesn't make sense...
-}
-
-# this probably doesn't make sense...
-enum ProductCategoryType {
-  PRODUCT
-  SERVICE
-}
-
-type ProductVariant {
-  id: String!
-  sku: String!
-  title: String!
-  subtitle: String!
-  description: String!
-  price: Float! # will a product always have a price?
-
-  # business logic
-  canPurchase: Boolean!
-
-  # universal details about products
-  width: Float
-  height: Float
-  depth: Float
-}
-
-type ProductImage {
-  url: String!
-  altText: String!
-  isDefault: Boolean!
-  width: Int!
-  height: Int!
 }

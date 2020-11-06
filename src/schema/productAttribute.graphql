@@ -1,0 +1,35 @@
+
+type ProductCategory {
+  id: String!
+  name: String!
+  isPrimary: Boolean!
+  type: ProductCategoryType # this probably doesn't make sense...
+}
+
+# this probably doesn't make sense...
+enum ProductCategoryType {
+  PRODUCT
+  SERVICE
+}
+
+type ProductAvailability {
+  isAvailable: Boolean!
+  reason: ProductAvailabilityReason
+}
+
+# a product may be unavailable for one of several reasons
+enum ProductAvailabilityReason {
+  AVAILABLE
+  OUT_OF_STOCK
+  RESTRICTED
+  COMPLIANCE
+}
+
+type ProductImage {
+  url: String!
+  descritpion: String # useful but maybe not needed
+  altText: String!
+  isDefault: Boolean!
+  width: Int!
+  height: Int!
+}
