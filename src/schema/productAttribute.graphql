@@ -53,9 +53,15 @@ type ProductImage {
 }
 
 type ProductPrice {
-  type: ProductPriceType
-  value: Float!
-  currency: ProductPriceCurrency
+  net: Money!
+  gross: Money!
+  tax: Money!
+  currency: String!
+}
+
+type Money {
+  amount: Float!
+  currency: String!
 }
 
 enum ProductPriceType {
