@@ -8,7 +8,7 @@ interface ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: Float! # will a product always have a price? just a single price?
+  price: [ProductPrice!]!
 
   # relationships to other data
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
@@ -40,7 +40,7 @@ type Product implements ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: Float!
+  price: [ProductPrice!]!
 
   variants: [ProductVariant!]!
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
@@ -61,9 +61,10 @@ type ProductVariant implements ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: Float!
+  price: [ProductPrice!]!
 
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
+  associatedProducts: [ProductAssociated!]!
 
   availability: ProductAvailability!
 
@@ -83,7 +84,7 @@ type ProductAssociated implements ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: Float!
+  price: [ProductPrice!]!
 
   # variants: [ProductVariant!]! # should associated products have this?
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!

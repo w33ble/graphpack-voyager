@@ -52,6 +52,20 @@ type ProductImage {
   height: Int!
 }
 
+type ProductPrice {
+  type: ProductPriceType
+  value: Float!
+  currency: ProductPriceCurrency
+}
+
+enum ProductPriceType {
+  PURCHASE_PRICE
+}
+
+enum ProductPriceCurrency {
+  USD
+}
+
 # these values are very much in flux
 enum ProductImageSize {
   SMALL
