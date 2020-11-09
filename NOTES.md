@@ -8,8 +8,8 @@
 - don't forget about prodcut images
 - not all products have a manufacturer SKU
 
-- location(s) of a product
-  - is this important in the context of products? or just an asset thing
+- location(s) of a product, origin of production
+  - useful metadata, just like environmental certifications
 
 ## Questions
 
