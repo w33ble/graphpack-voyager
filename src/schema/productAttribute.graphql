@@ -6,15 +6,16 @@ type ProductMeasurement {
 
 type ProductAttribute {
   # id: String! # we probably need this, right?
+  displayName: String!
   name: String!
   values: [ProductAttributeValue]!
   isRequired: Boolean!
 }
 
 type ProductAttributeValue {
-  displayValue: String!
+  displayName: String!
   value: String!
-  image(size: ProductImageSize = MEDIUM): ProductImage!
+  image(size: ProductImageSize = MEDIUM): ProductImage
 }
 
 type ProductCategory {
