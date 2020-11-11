@@ -3,15 +3,10 @@ interface ProductInterface {
   id: String!
   sku: String!
   manufacturer: String!
-  type: ProductType!
   categories(isPrimary: Boolean): [ProductCategory!]!
   title: String!
-  subtitle: String!
   description: String!
-  purchasePrice: Money!
-
-  # relationships to other data
-  images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
+  prices: ProductPrices!
 
   # business logic
   availability: ProductAvailability!
@@ -19,6 +14,11 @@ interface ProductInterface {
   # universal details about products
   measurements: [ProductMeasurement!]! # ex. width, height, seer
   attributes: [ProductAttribute!]! # ex. color
+
+  # relationships to other data
+  images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
+  associatedProducts: [ProductAssociated!]!
+  variants: [Product!]!
 }
 
 type Product implements ProductInterface {
@@ -26,40 +26,16 @@ type Product implements ProductInterface {
   id: String!
   sku: String!
   manufacturer: String!
-  type: ProductType!
   categories(isPrimary: Boolean): [ProductCategory!]!
   title: String!
-  subtitle: String!
   description: String!
-  purchasePrice: Money!
-  images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
+  prices: ProductPrices!
   availability: ProductAvailability!
   measurements: [ProductMeasurement!]!
   attributes: [ProductAttribute!]!
-
-  associatedProducts: [ProductAssociated!]!
-  variants: [ProductVariant!]!
-}
-
-type ProductVariant implements ProductInterface {
-  id: String!
-  sku: String!
-  manufacturer: String!
-  type: ProductType!
-  categories(isPrimary: Boolean): [ProductCategory!]!
-  title: String!
-  subtitle: String!
-  description: String!
-  purchasePrice: Money!
-
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
-
-  availability: ProductAvailability!
-
-  measurements: [ProductMeasurement!]!
-  attributes: [ProductAttribute!]!
-
   associatedProducts: [ProductAssociated!]!
+  variants: [Product!]!
 }
 
 type ProductAssociated implements ProductInterface {
@@ -67,20 +43,16 @@ type ProductAssociated implements ProductInterface {
   id: String!
   sku: String!
   manufacturer: String!
-  type: ProductType!
   categories(isPrimary: Boolean): [ProductCategory!]!
   title: String!
-  subtitle: String!
   description: String!
-  purchasePrice: Money!
-
-  images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
-
+  prices: ProductPrices!
   availability: ProductAvailability!
-
   measurements: [ProductMeasurement!]!
   attributes: [ProductAttribute!]!
+  images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
+  associatedProducts: [ProductAssociated!]!
+  variants: [Product!]!
 
-  # variants: [ProductVariant!]! # should associated products have this?
   isRequired: Boolean!
 }

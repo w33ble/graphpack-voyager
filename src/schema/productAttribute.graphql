@@ -1,3 +1,9 @@
+type ProductPrices {
+  purchase: Money! # will we always have a price?
+  msrp: Money
+  custom: Money
+}
+
 type ProductMeasurement {
   dimension: String!
   value: Float!
@@ -23,15 +29,6 @@ type ProductCategory {
   name: String!
   isPrimary: Boolean!
   type: ProductCategoryType # this probably doesn't make sense...
-}
-
-enum ProductType {
-  APPLIANCE
-  HVAC
-  PAINT
-  FLOORING
-  CABINET
-  COUNTERTOP
 }
 
 # this probably doesn't make sense...

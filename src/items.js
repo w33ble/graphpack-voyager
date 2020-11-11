@@ -3,7 +3,6 @@ const itemsWithVariants = [
     id: 'SIBI-GO-GSZ160241',
     sku: 'GSZ160241',
     manufacturer: 'Goodman',
-    type: 'HVAC',
     categories: [
       {
         id: 1,
@@ -13,9 +12,8 @@ const itemsWithVariants = [
       },
     ],
     title: 'Heat Pumps',
-    subtitle: 'Split System',
     description: 'Split system heat pumps, for the whole family',
-    purchasePrice: { amount: 901, currency: 'USD' },
+    prices: { purchase: { amount: 901, currency: 'USD' } },
     images: [],
     availability: {
       isAvailable: true,
@@ -70,7 +68,6 @@ const itemsWithVariants = [
         id: 'SIBI-GO-GSZ140251',
         sku: 'GSZ140251',
         manufacturer: 'Goodman',
-        type: 'HVAC',
         categories: [
           {
             id: 1,
@@ -80,11 +77,12 @@ const itemsWithVariants = [
           },
         ],
         title: 'Heat Pumps',
-        subtitle: 'Split System',
         description: 'Split system heat pumps, for the whole family',
-        purchasePrice: {
-          amount: 920.0,
-          currency: 'USD',
+        prices: {
+          purchase: {
+            amount: 920.0,
+            currency: 'USD',
+          },
         },
         images: [],
         availability: {
@@ -127,7 +125,6 @@ const itemsWithVariants = [
     id: 'SIBI-GE-GFW650SSNWW',
     sku: 'GFW650SSNWW',
     manufacturer: 'GE',
-    type: 'APPLICANCE',
     categories: [
       {
         id: 2,
@@ -143,9 +140,8 @@ const itemsWithVariants = [
       },
     ],
     title: '4.8 Cu. Ft. Washing Machine',
-    subtitle: '12-Cycle, High Efficiency',
     description: 'Keep it popping with some clean clothes',
-    purchasePrice: { amount: 345.67, currency: 'USD' },
+    prices: { purchase: { amount: 345.67, currency: 'USD' } },
     images: [],
     availability: {
       isAvailable: true,
