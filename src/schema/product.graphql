@@ -21,15 +21,6 @@ interface ProductInterface {
   attributes: [ProductAttribute!]! # ex. color
 }
 
-enum ProductType {
-  APPLIANCE
-  HVAC
-  PAINT
-  FLOORING
-  CABINET
-  COUNTERTOP
-}
-
 type Product implements ProductInterface {
   # universal fields on a product
   id: String!
@@ -41,15 +32,13 @@ type Product implements ProductInterface {
   subtitle: String!
   description: String!
   price: [ProductPrice!]!
-
-  variants: [ProductVariant!]!
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
-  associatedProducts: [ProductAssociated!]!
-
   availability: ProductAvailability!
-
   measurements: [ProductMeasurement!]!
   attributes: [ProductAttribute!]!
+
+  associatedProducts: [ProductAssociated!]!
+  variants: [ProductVariant!]!
 }
 
 type ProductVariant implements ProductInterface {
@@ -64,14 +53,13 @@ type ProductVariant implements ProductInterface {
   price: [ProductPrice!]!
 
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
-  associatedProducts: [ProductAssociated!]!
 
   availability: ProductAvailability!
 
   measurements: [ProductMeasurement!]!
   attributes: [ProductAttribute!]!
 
-  # we need a way to show which field values determine which variant is shown
+  associatedProducts: [ProductAssociated!]!
 }
 
 type ProductAssociated implements ProductInterface {
@@ -86,12 +74,13 @@ type ProductAssociated implements ProductInterface {
   description: String!
   price: [ProductPrice!]!
 
-  # variants: [ProductVariant!]! # should associated products have this?
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
 
   availability: ProductAvailability!
-  isRequired: Boolean!
 
   measurements: [ProductMeasurement!]!
   attributes: [ProductAttribute!]!
+
+  # variants: [ProductVariant!]! # should associated products have this?
+  isRequired: Boolean!
 }

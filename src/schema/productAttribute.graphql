@@ -24,6 +24,15 @@ type ProductCategory {
   type: ProductCategoryType # this probably doesn't make sense...
 }
 
+enum ProductType {
+  APPLIANCE
+  HVAC
+  PAINT
+  FLOORING
+  CABINET
+  COUNTERTOP
+}
+
 # this probably doesn't make sense...
 enum ProductCategoryType {
   PRODUCT
