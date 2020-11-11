@@ -61,24 +61,9 @@ type ProductImage {
   height: Int!
 }
 
-type ProductPrice {
-  net: Money!
-  gross: Money!
-  tax: Money!
-  currency: String!
-}
-
 type Money {
   amount: Float!
   currency: String!
-}
-
-enum ProductPriceType {
-  PURCHASE_PRICE
-}
-
-enum ProductPriceCurrency {
-  USD
 }
 
 # these values are very much in flux

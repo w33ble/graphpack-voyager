@@ -8,7 +8,7 @@ interface ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: [ProductPrice!]!
+  price: Money!
 
   # relationships to other data
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
@@ -31,7 +31,7 @@ type Product implements ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: [ProductPrice!]!
+  price: Money!
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
   availability: ProductAvailability!
   measurements: [ProductMeasurement!]!
@@ -50,7 +50,7 @@ type ProductVariant implements ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: [ProductPrice!]!
+  price: Money!
 
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
 
@@ -72,7 +72,7 @@ type ProductAssociated implements ProductInterface {
   title: String!
   subtitle: String!
   description: String!
-  price: [ProductPrice!]!
+  price: Money!
 
   images(isPrimary: Boolean, size: ProductImageSize = MEDIUM): [ProductImage!]!
 
